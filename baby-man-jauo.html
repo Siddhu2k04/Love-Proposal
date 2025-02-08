@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby Man Jauo Na</title>     
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ffcccc, #ffe6e6);
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            color: #444;
+            padding: 0;
+            margin: 0;
+            overflow: hidden; /* Prevent page scrolling */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+            overflow: hidden; /* Prevent the container from overflowing */
+        }
+        .gif {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            gap: 20px; /* Space between buttons */
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1rem;
+            color: #444;
+            background: white;
+            border: 2px solid #444;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+        button:hover {
+            background: #f0f0f0;
+            transform: scale(1.1);
+        }
+        .no-button {
+            position: absolute;
+        }
+        /* Optional: Adds some smoothness to movement */
+        .no-button.moving {
+            transition: top 0.2s ease, left 0.2s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://media.tenor.com/3bDvSVpiwjoAAAAi/peach-goma-phone.gif" alt="Begging GIF" class="gif">
+        <h1>Baby man jauo na! Kitna bhav khaogi 😘</h1>
+        <div class="button-container">
+            <button onclick="window.location.href='yes.html'">Yes</button>
+            <button class="no-button" onmouseover="moveNoButton(this)">No</button>
+        </div>
+    </div>
+
+    <script>
+        function moveNoButton(button) {
+            const container = document.querySelector('.container');
+            const containerRect = container.getBoundingClientRect();
+            const buttonRect = button.getBoundingClientRect();
+
+            const maxX = containerRect.width - buttonRect.width;
+            const maxY = containerRect.height - buttonRect.height;
+
+            // Ensure the button is constrained within the container's boundaries
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            button.classList.add('moving'); // Optional: Add smoothness to the movement
+            button.style.left = `${randomX}px`;
+            button.style.top = `${randomY}px`;
+        }
+    </script>
+</body>
+</html>
